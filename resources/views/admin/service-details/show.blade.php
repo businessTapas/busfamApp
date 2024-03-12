@@ -1,0 +1,43 @@
+<form id="viewJob" >
+<div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="required"> Banner Title </label>
+                                <input  type="text" class="form-control" placeholder="Enter Banner Title"
+                                    name="title" value="{{ $bannerdata->title }}" required>
+                                    <div class="error-messages" id="titleError"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="required"> Description </label>
+                                <textarea   class="form-control" placeholder="Enter Description"
+                                    name="description" required>
+                                    {{ $bannerdata->description }}
+                                </textarea>
+                                    <div class="error-messages" id="descriptionError"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="required">Banner Image:</label>
+                                <input type="file" class="form-control-file" id="image" name="image" accept="image/*"  onchange="previewImage()" required>
+                            </div>
+                            <div id="imagePreview"class="form-group">
+                            <img src="{{ asset($bannerdata->banner_image) }}"  style="max-width: 50px; " alt = "Image Preview">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="required"> Status</label>
+                                <select class="form-control" name="status" >
+                                    <option value="active" {{  $bannerdata->status == 'active' ? 'selected' : '' }} >Active</option>
+                                    <option value="inactive" {{  $bannerdata->status == 'inactive' ? 'selected' : '' }} >Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+
+                </form>
